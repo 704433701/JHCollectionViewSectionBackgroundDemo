@@ -93,4 +93,12 @@ NSString *const JHCollectionViewSectionBackground = @"JHCollectionViewSectionBac
     }
     return attrs;
 }
+
+- (nullable UICollectionViewLayoutAttributes *)layoutAttributesForDecorationViewOfKind:(NSString*)elementKind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([elementKind isEqualToString:JHCollectionViewSectionBackground]) {
+        return [self.decorationViewAttrs objectAtIndex:indexPath.section];
+    }
+    return [super layoutAttributesForDecorationViewOfKind:elementKind atIndexPath:indexPath];
+}
 @end
